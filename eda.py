@@ -82,8 +82,25 @@ def num_summary(dataframe, numerical_col, plot=False):
 #############################################
 
 def target_summary_with_cat(dataframe, target, categorical_col):
+    """
+    DSMLBC kapsamında Kategorik değişkenlere göre target analizi yapan metottur.
+    :param dataframe:pd.DataFrame
+                    Değişkenlerin bulunduğu veri seti.
+    :param target:categorical
+                İlgili veri setindeki odak değişken,hedef değişken
+    :param categorical_col:categorical
+                           Değişken türünün kategorik olduğu değişkenler
+
+
+    :example:
+      import pandas as pd
+      df = pd.read_csv("datasets/titanic.csv")
+      cat_cols = [col for col in df.columns if df[col].dtypes == "O"]
+      target_summary_with_cat(df, "Survived", cat_cols)
+
+    """
     print(pd.DataFrame({"TARGET_MEAN": dataframe.groupby(categorical_col)[target].mean()}), end="\n\n\n")
 
 
-def target_summary_with_num(dataframe, target, numerical_col):
-    print(dataframe.groupby(target).agg({numerical_col: "mean"}), end="\n\n\n")
+
+
