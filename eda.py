@@ -98,6 +98,7 @@ def target_summary_with_cat(dataframe, target, categorical_col):"""
 
     Examples
     --------
+    
     import pandas as pd
     import seaborn as sns
     df = sns.load_dataset("titanic")
