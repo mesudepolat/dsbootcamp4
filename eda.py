@@ -81,7 +81,29 @@ def num_summary(dataframe, numerical_col, plot=False):
 # TARGET
 #############################################
 
-def target_summary_with_cat(dataframe, target, categorical_col):
+def target_summary_with_cat(dataframe, target, categorical_col):"""
+
+    Parameters
+    ----------
+    dataframe: pd.DataFrame
+              Değişkenleri içeren veri seti
+    target:int
+           Veri setindeki hedef değişken.
+    categorical_col:str
+                    Tipi kategorik olan değişkenler.
+
+    Returns
+    -------
+    TARGET_MEAN
+
+    Examples
+    --------
+    import pandas as pd
+    import seaborn as sns
+    df = sns.load_dataset("titanic")
+    target_summary_with_cat(df, "Survived", final_cat_cols)
+
+    """
     print(pd.DataFrame({"TARGET_MEAN": dataframe.groupby(categorical_col)[target].mean()}), end="\n\n\n")
 
 
